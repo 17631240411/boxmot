@@ -123,6 +123,35 @@ def xyxy2xysr(x):
     y = y.reshape((4, 1))
     return y
 
+def xyxy2xysr_batch(x):
+    """
+    Converts a batch of bounding box coordinates from (x1, y1, x2, y2) format to (x, y, s, r) format.
+    This is a vectorized / batch-capable version.
+
+    Args:
+        x (np.ndarray): The input bounding box coordinates in (N, 4) format.
+    Returns:
+        y (np.ndarray): The bounding box coordinates in (N, 4) format, where each row is (x, y, s, r).
+    """
+    # Ensure input is a numpy array
+    if isinstance(x, torch.Tensor):
+        x = x.cpu().numpy()
+
+    # Calculate width and height for all boxes
+    w = x[:, 2] - x[:, 0]
+    h = x[:, 3] - x[:, 1]
+
+    # Initialize the output array
+    y = np.empty_like(x)
+
+    # Calculate center x, center y, scale (area), and aspect ratio
+    y[:, 0] = x[:, 0] + w / 2.0
+    y[:, 1] = x[:, 1] + h / 2.0
+    y[:, 2] = w * h
+    y[:, 3] = w / (h + 1e-6)
+
+    return y
+
 
 def letterbox(
     img: np.ndarray,

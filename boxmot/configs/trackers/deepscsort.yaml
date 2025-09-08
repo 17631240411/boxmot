@@ -1,0 +1,62 @@
+# boxmot/configs/deepscsort.yaml
+
+min_conf:
+  type: uniform
+  default: 0.1
+  range: [0.05, 0.3]
+
+det_thresh:
+  type: uniform
+  default: 0.2
+  range: [0.1, 0.5]
+
+max_age:
+  type: randint
+  default: 300
+  range: [20, 500]
+
+min_hits:
+  type: randint
+  default: 3
+  range: [1, 6]
+
+delta_t:
+  type: randint
+  default: 3
+  range: [1, 6]
+
+use_byte:
+  type: choice
+  default: True
+  choices: [True, False]
+
+Q_xy_scaling:
+  type: uniform
+  default: 0.01
+  range: [0.005, 0.05]
+
+Q_s_scaling:
+  type: uniform
+  default: 0.0001
+  range: [0.00005, 0.0005]
+
+  iou_gate_thresh:
+    type: uniform
+    default: 0.8
+    range: [ 0.7, 0.95 ]
+
+  reid_asso_thresh:
+    type: uniform
+    default: 0.2
+    range: [ 0.1, 0.3 ]
+
+  rescue_dist_thresh:
+    type: uniform
+    default: 2.0
+    range: [ 1.0, 3.0 ]
+
+  byte_iou_thresh:
+    type: uniform
+    default: 0.5
+    range: [ 0.4, 0.7 ]
+

@@ -61,6 +61,8 @@ def create_tracker(
         "deepocsort": "boxmot.trackers.deepocsort.deepocsort.DeepOcSort",
         "hybridsort": "boxmot.trackers.hybridsort.hybridsort.HybridSort",
         "boosttrack": "boxmot.trackers.boosttrack.boosttrack.BoostTrack",
+        "scsort": "boxmot.trackers.scsort.scsort.ScSort",
+        "deepscsort": "boxmot.trackers.deepscsort.deepscsort.DeepScSort",
     }
 
     # Check if the tracker type exists in the mapping
@@ -78,6 +80,7 @@ def create_tracker(
         "deepocsort",
         "hybridsort",
         "boosttrack",
+        "deepscsort",
     ]:
         tracker_args["per_class"] = per_class
         tracker_args.update(reid_args)

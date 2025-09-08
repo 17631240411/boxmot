@@ -47,7 +47,7 @@ _C.MODEL.METRIC_LOSS_TYPE = "triplet"
 _C.MODEL.DIST_TRAIN = False
 # If train with soft triplet loss, options: 'True', 'False'
 _C.MODEL.NO_MARGIN = False
-# If train with label smooth, options: 'on', 'off'
+# If train with stu_all smooth, options: 'on', 'off'
 _C.MODEL.IF_LABELSMOOTH = "on"
 # If train with arcface loss, options: 'True', 'False'
 _C.MODEL.COS_LAYER = False

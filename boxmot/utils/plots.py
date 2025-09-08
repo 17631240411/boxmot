@@ -57,7 +57,7 @@ class MetricsPlotter:
         ----------
         data : dict
             Keys are method names (strings), values are lists of numeric scores
-            (one score per label). Each list must have the same length as `labels`.
+            (one score per stu_all). Each list must have the same length as `labels`.
         labels : list of str
             Names of the metrics (e.g. ['HOTA', 'AssA', 'AssR', ...]).
         title : str, optional
